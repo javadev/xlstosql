@@ -18,19 +18,21 @@
 
 package com.github.xlstosql;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import java.io.File; 
-import java.io.FileOutputStream; 
-import java.util.Date; 
-import java.util.Calendar;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
-import jxl.*;
-import org.apache.commons.io.IOUtils;
-
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import jxl.Cell;
+import jxl.CellType;
+import jxl.Sheet;
+import jxl.Workbook;
+
+import org.apache.commons.io.IOUtils;
 
 /**
  * SqlGenerator.
@@ -50,6 +52,11 @@ public class SqlGenerator {
     /** Instance logger */
     private Logger log;
 
+    /**
+     * Constructor.
+     * @param files xls files
+     * @param outSql output sql file
+     */
     public SqlGenerator(List<String> files, String outSql) {
         this.files = files;
         this.outSql = outSql;
@@ -59,6 +66,7 @@ public class SqlGenerator {
      * By default, return a <code>SystemStreamLog</code> logger.
      *
      * @see org.apache.maven.plugin.Mojo#getLog()
+     * @return the logger
      */
     public Logger getLog() {
         if (log == null) {
@@ -105,7 +113,7 @@ public class SqlGenerator {
                 }
             }
             workbook.close();
-            IOUtils.write(result.toString(), new FileOutputStream(outSql), "cp1251") ;
+            IOUtils.write(result.toString(), new FileOutputStream(outSql), "cp1251");
     getLog().log(Level.INFO, "read " + fileName.replaceFirst(".*/(.*)", "$1") + " - " + sheetNames);
         }
         } catch (Exception ex) {

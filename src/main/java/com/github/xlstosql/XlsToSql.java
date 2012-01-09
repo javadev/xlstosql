@@ -32,9 +32,15 @@ import java.util.logging.Logger;
  */
 public class XlsToSql {
 
+    /**
+     * Main method.
+     * @param args source.xls output.sql
+     */
     public static void main(String[] args) {
         if (args.length < 2) {
-            Logger.getLogger(XlsToSql.class.getName()).log(Level.INFO, "XLS to SQL convertor. Copyright (c) 2011 (javadev75@gmail.com)\nUsage: XlsToSql source.xls output.sql");
+            Logger.getLogger(XlsToSql.class.getName()).log(Level.INFO,
+                    "XLS to SQL convertor. Copyright (c) 2012 (javadev75@gmail.com)\n"
+                    + "Usage: XlsToSql source.xls output.sql");
             return;
         }
         String xlsFiles = args[0].trim();
