@@ -7,7 +7,7 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>XLS to SQL converter</name>
-  <description>The utility class to convert XLS file to the SQL file</description>
+  <description>The utility class to convert XLS files to the SQL file</description>
   
   <build>
         <resources>
@@ -29,6 +29,17 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
+      <plugin>  
+        <groupId>org.apache.maven.plugins</groupId>  
+        <artifactId>maven-jar-plugin</artifactId>  
+        <configuration>  
+          <archive>  
+            <manifest>  
+              <mainClass>com.github.xlstosql.XlsToSql</mainClass>  
+            </manifest>  
+          </archive>  
+        </configuration>  
+      </plugin> 
       <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
